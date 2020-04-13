@@ -1,8 +1,9 @@
 #include "game.h"
+#include "splash_state.h"
 
 Game::Game(int width, int height, std::string windowTitle) {
     _data->window.create(sf::VideoMode(width, height), windowTitle, sf::Style::Close | sf::Style::Titlebar);
-
+    _data->machine.AddState(StateRef(new SplashState(this->_data)));
     this->Run();
 }
 

@@ -1,0 +1,12 @@
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
+
+#define SCREEN_WIDTH 768
+#define SCREEN_HEIGHT 1136
+#define SPLASH_SHOW_TIME 0.5
+
+//File Paths
+#define SPLASH_SCENE_BACKGROUND_FILEPATH "res/splash.png"
+
+
+#endif // DEFINITIONS_H
