@@ -1,4 +1,5 @@
 #include "game_state.h"
+#include "game_over_state.h"
 
 GameState::GameState(GameDataRef data) : _data(data) {
 
@@ -20,7 +21,9 @@ void GameState::HandleInput() {
             this->_data->window.close();
         }
         if (this->_data->input.IsSpriteSelected(this->_pauseButton, sf::Mouse::Left, this ->_data->window)) {
-            this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
+            //this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
+            this->_data->machine.AddState(StateRef(new GameOverState(_data)), true);
+
         }
     }
 }

@@ -21,11 +21,15 @@
 #define O_PIECE_IMAGEPATH "res/o.png"
 #define X_WINNING_PIECE_IMAGEPATH "res/xwin.png"
 #define O_WINNING_PIECE_IMAGEPATH "res/owin.png"
+#define GRID_SPRITE_IMAGEPATH "res/grid.png"
 
 //Pause Assets
 #define PAUSE_BACKGROUND_IMAGEPATH "res/pausebackground.png"
 #define RESUME_BUTTON_IMAGEPATH "res/resumebutton.png"
 #define HOME_BUTTON_IMAGEPATH "res/homebutton.png"
+
+//Game Over Screen Assets
+#define RETRY_BUTTON_IMAGEPATH "res/retrybutton.png"
 
 //Game Variables
 #define X_PIECE 1
