@@ -7,6 +7,6 @@ set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
 project(TicTakToe)
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
-add_executable(TicTakToe src/main.cpp src/state_machine.cpp src/asset_manager.cpp src/input_manager.cpp)
+add_executable(TicTakToe src/main.cpp src/state_machine.cpp src/asset_manager.cpp src/input_manager.cpp src/game.cpp)
 target_link_libraries(TicTakToe sfml-graphics sfml-audio)
 
