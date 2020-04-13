@@ -5,8 +5,8 @@ add_definitions(-std=c++17)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-project(HelloWorld)
+project(TicTakToe)
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
-add_executable(HelloWorld src/main.cpp)
-target_link_libraries(HelloWorld sfml-graphics sfml-audio)
+add_executable(TicTakToe src/main.cpp src/state_machine.cpp)
+target_link_libraries(TicTakToe sfml-graphics sfml-audio)
 
