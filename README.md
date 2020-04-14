@@ -18,13 +18,13 @@ This project is a simple Tic Tac Toe Game that uses the SMFL Library.
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 * SMFL >= 3.5.1
+  * PLEASE NOTE THIS SMFL 3.5.1 WILL ONLY WORK ON UBUNTU 18.04 AND ABOVE!!
   * Linux: run `sudo apt-get install libsfml-dev` to install SMFL
 
 
 ## Basic Build Instructions
-
 1. Clone this repo.
-2. Install All Dependencies
+2. Install All Dependencies (Make sure running Ubuntu 18.04 or Above)
 3. Make a build directory in the top level directory: `mkdir build && cd build`
 4. Compile: `cmake .. && make`
 5. Run it: `./TicTacToe`.
