@@ -1,6 +1,5 @@
 #ifndef GAME_STATE_H
 #define GAME_STATE_H
-
 #include <SFML/Graphics.hpp>
 #include "state.h"
 #include "game.h"
@@ -8,6 +7,8 @@
 #include <sstream>
 #include "DEFINITIONS.h"
 #include <iostream>
+#include "computer_logic.h"
+
 class GameState: public State {
 public:
     GameState(GameDataRef data);
@@ -30,6 +31,7 @@ private:
 
     int turn;
     int gameState;
+    ComputerLogic *computerLogic;
 };
 
 #endif // GAME_STATE_H

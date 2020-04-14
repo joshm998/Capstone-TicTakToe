@@ -15,9 +15,7 @@ private:
     GameDataRef _data;
     sf::Sprite _background;
     sf::Sprite _playButton;
-    sf::Sprite _playButtonOuter;
     sf::Sprite _title;
-
 };
 
 #endif // MAIN_MENU_STATE_H

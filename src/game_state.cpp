@@ -8,14 +8,16 @@ GameState::GameState(GameDataRef data) : _data(data) {
 void GameState::Init() {
     gameState = STATE_PLAYING;
     turn = PLAYER_PIECE;
+    this->computerLogic = new ComputerLogic(turn, this->_data);
     this->_data->assets.LoadTexture("Pause Button", PAUSE_BUTTON_IMAGEPATH);
+    this->_data->assets.LoadTexture("Game Background", GAME_BACKGROUND_IMAGEPATH);
     this->_data->assets.LoadTexture("Grid Sprite", GRID_SPRITE_IMAGEPATH);
     this->_data->assets.LoadTexture("X Piece", X_PIECE_IMAGEPATH);
     this->_data->assets.LoadTexture("O Piece", O_PIECE_IMAGEPATH);
     this->_data->assets.LoadTexture("X Piece Winning", X_WINNING_PIECE_IMAGEPATH);
     this->_data->assets.LoadTexture("O Piece Winning", O_WINNING_PIECE_IMAGEPATH);
 
-    _background.setTexture(this->_data->assets.GetTexture("Background"));
+    _background.setTexture(this->_data->assets.GetTexture("Game Background"));
     _pauseButton.setTexture(this->_data->assets.GetTexture("Pause Button"));
     _gridSprite.setTexture(this->_data->assets.GetTexture("Grid Sprite"));
     _pauseButton.setPosition(this->_data->window.getSize().x - _pauseButton.getLocalBounds().width, _pauseButton.getPosition().y);
@@ -109,28 +111,34 @@ void GameState::PlacePiece() {
         {
             _gridPieces[column -1][row - 1].setTexture(this->_data->assets.GetTexture("X Piece"));
             this->CheckPlayerHasWon(turn);
-            turn = COMPUTER_PIECE;
         }
-        else if (COMPUTER_PIECE == turn)
-        {
-            _gridPieces[column -1][row - 1].setTexture(this->_data->assets.GetTexture("O Piece"));
-            this->CheckPlayerHasWon(turn);
-            turn = PLAYER_PIECE;
-        }
+
         _gridPieces[column - 1][row - 1].setColor(sf::Color(255, 255, 255, 255));
     }
 }
 
 void GameState::CheckPlayerHasWon(int turn) {
-    CheckForMatch(0,0,1,0,2,0,turn);
-    CheckForMatch(0,1,1,1,2,1,turn);
-    CheckForMatch(0,2,1,2,2,2,turn);
-    CheckForMatch(0,0,0,1,0,2,turn);
-    CheckForMatch(1,0,1,1,1,2,turn);
-    CheckForMatch(2,0,2,1,2,2,turn);
-    CheckForMatch(0,0,1,1,2,2,turn);
-    CheckForMatch(0,0,1,1,2,0,turn);
+    CheckForMatch(0, 0, 1, 0, 2, 0, turn);
+    CheckForMatch(0, 1, 1, 1, 2, 1, turn);
+    CheckForMatch(0, 2, 1, 2, 2, 2, turn);
+    CheckForMatch(0, 0, 0, 1, 0, 2, turn);
+    CheckForMatch(1, 0, 1, 1, 1, 2, turn);
+    CheckForMatch(2, 0, 2, 1, 2, 2, turn);
+    CheckForMatch(0, 0, 1, 1, 2, 2, turn);
+    CheckForMatch(0, 2, 1, 1, 2, 0, turn);
 
+    if (gameState != STATE_WON) {
+        gameState = STATE_COMPUTER_PLAYING;
+        computerLogic->PlacePiece(&gridArray, _gridPieces, &gameState);
+        CheckForMatch(0, 0, 1, 0, 2, 0, COMPUTER_PIECE);
+        CheckForMatch(0, 1, 1, 1, 2, 1, COMPUTER_PIECE);
+        CheckForMatch(0, 2, 1, 2, 2, 2, COMPUTER_PIECE);
+        CheckForMatch(0, 0, 0, 1, 0, 2, COMPUTER_PIECE);
+        CheckForMatch(1, 0, 1, 1, 1, 2, COMPUTER_PIECE);
+        CheckForMatch(2, 0, 2, 1, 2, 2, COMPUTER_PIECE);
+        CheckForMatch(0, 0, 1, 1, 2, 2, COMPUTER_PIECE);
+        CheckForMatch(0, 2, 1, 1, 2, 0, COMPUTER_PIECE);
+    }
     int emptyNum = 9;
 
     for (int x = 0; x < 3; x++) {

@@ -1,8 +1,8 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 //Display Variables
-#define SCREEN_WIDTH 768
-#define SCREEN_HEIGHT 1136
+#define SCREEN_WIDTH 1024
+#define SCREEN_HEIGHT 768
 #define SPLASH_SHOW_TIME 0.5
 
 //Splash Screen Assets
@@ -15,7 +15,7 @@
 #define MAIN_MENU_PLAY_BUTTON_OUTER_IAMGEPATH "res/playbuttonouter.png"
 
 //Game Assets
-#define GAME_BACKGROUND_IMAGEPATH "res/menubackground.png"
+#define GAME_BACKGROUND_IMAGEPATH "res/background.png"
 #define PAUSE_BUTTON_IMAGEPATH "res/pausebutton.png"
 #define X_PIECE_IMAGEPATH "res/x.png"
 #define O_PIECE_IMAGEPATH "res/o.png"
@@ -45,6 +45,7 @@
 #define STATE_PLAYER_TURN 4
 #define STATE_COMPUTER_TURN 5
 #define STATE_DRAW 6
+#define STATE_COMPUTER_PLAYING 0
 
 
 #endif // DEFINITIONS_H
