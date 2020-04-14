@@ -19,6 +19,8 @@ public:
 private:
     void InitGridPieces();
     void PlacePiece();
+    void CheckPlayerHasWon(int turn);
+    void CheckForMatch(int x1, int y1, int x2, int y2, int x3, int y3, int pieceToCheck);
     GameDataRef _data;
     sf::Sprite _background;
     sf::Sprite _pauseButton;
