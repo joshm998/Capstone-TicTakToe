@@ -32,6 +32,7 @@ private:
     int turn;
     int gameState;
     ComputerLogic *computerLogic;
+    sf::Clock _clock;
 };
 
 #endif // GAME_STATE_H

@@ -51,7 +51,11 @@ void GameState::HandleInput() {
 }
 
 void GameState::Update(float deltaTime) {
-
+    if (gameState == STATE_WON || gameState == STATE_LOST || gameState == STATE_WON ) {
+        if (this->_clock.getElapsedTime().asSeconds() > SECONDS_BEFORE_SHOWING_GAME_OVER) {
+            this->_data->machine.AddState(StateRef(new GameOverState(_data)), true);
+        }
+    }
 }
 
 void GameState::Draw(float deltaTime) {
@@ -154,7 +158,7 @@ void GameState::CheckPlayerHasWon(int turn) {
     }
 
     if (gameState == STATE_DRAW || gameState == STATE_LOST || gameState == STATE_WON) {
-
+        this->_clock.restart();
     }
 
     std::cout << gameState << std::endl;
